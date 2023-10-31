@@ -1,0 +1,10 @@
+FROM openjdk:latest
+
+WORKDIR /app
+
+COPY . /app
+
+RUN javac -sourcepath ./ -d out ./Calculator/Receiving.java
+
+CMD ["java", "-cp", "out", "Calculator.Receiving"]
+#docker run --rm -it calculator-app
