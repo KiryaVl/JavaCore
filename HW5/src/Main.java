@@ -31,22 +31,24 @@ public class Main {
             account3.deposit(1);
 
             account1.withdrawMoney(100);
-            account2.withdrawMoney(5000);
+            account2.withdrawMoney(100);
             account3.withdrawMoney(2);
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
         try {
-            Account account1 = new DebitAccount("Arkadi", "qwerty123", 120);
-            Account account2 = new CreditAccount("Maria", "qwerty12321", 123, 1000);
+            Account account4 = new DebitAccount("Arkadi", "qwerty123", 120);
+            Account account5 = new DebitAccount("Maria", "qwerty12321", 123);
 
-            account1.deposit(500);
-            account2.deposit(1);
+            account4.deposit(500);
+            account5.deposit(1);
 
-            account1.withdrawMoney(100);
-            account2.withdrawMoney(2000);
+            account4.withdrawMoney(100);
+            account5.withdrawMoney(100);
 
-            Transaction.transfer(account1, account2, 50);
+            System.out.println(account4.getBalance());
+
+            Transaction.transfer(account4, account5, 500);
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }

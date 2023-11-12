@@ -3,7 +3,7 @@ class Transaction {
         try {
             fromAccount.withdrawMoney(amount);
             toAccount.deposit(amount);
-            System.out.printf("Транзакция прошла успешно. Сумма перевода: %.2f\n", amount);
+            System.out.printf("Транзакция от %s прошла успешно. Сумма перевода для %s: %.2f\n", fromAccount.getUserName(), toAccount.getUserName(), amount);
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка валидации: " + e.getMessage());
         } catch (InsufficientFundsException e) {

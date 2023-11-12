@@ -57,15 +57,11 @@ public class Account {
     }
 
     public void withdrawMoney(double amount) {
-        try {
-            if (getBalance() < amount) {
-                throw new InsufficientFundsException(amount);
-            }
-
-            setBalance(getBalance() - amount);
-            System.out.printf("С вашего баланса успешно сняты средства в размере %.2f, ваш баланс %.2f\n", amount, getBalance());
-        } catch (InsufficientFundsException e) {
-            System.out.printf("Попытка снятия со счёта суммы больше допустимой: %s\n", e.getMessage());
+        if (getBalance() < amount) {
+            throw new InsufficientFundsException(amount);
         }
+
+        setBalance(getBalance() - amount);
+        System.out.printf("С вашего баланса успешно сняты средства в размере %.2f, ваш баланс %.2f\n", amount, getBalance());
     }
 }
